@@ -6,9 +6,9 @@ const UserSchema = new mongoose.Schema({
 
   password: { type: String, required: true },
 
-  agencies: [{ type: Schema.Types.ObjectId, ref: 'agency' }],
+  agencies: [{ type: Schema.Types.ObjectId, ref: 'Agency' }],
 
-  platforms: [{ type: Schema.Types.ObjectId, ref: 'platform' }]
+  platforms: [{ type: Schema.Types.ObjectId, ref: 'Platform' }]
 
 });
 
