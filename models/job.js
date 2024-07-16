@@ -2,6 +2,8 @@
 
 const mongoose = require('mongoose');
 
+const Schema = mongoose.Schema;
+
 const JobSchema = new mongoose.Schema({
 
     url: { type: String, required: true },

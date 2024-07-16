@@ -20,12 +20,19 @@ const isSignedIn = require("./middleware/is-signed-in.js");
 //Import middleware for blanket user session info on all views
 const passUserToView = require("./middleware/pass-user-to-view.js");
 
-
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : "3000";
 
 //import authController router object:
 const authController = require("./controllers/auth.js");
+
+//Import Controller router objects agency/platform/job: 
+const agencyController = require('./controllers/agency');
+
+const platformController = require('./controllers/platform');
+
+const jobController = require('./controllers/job');
+
 const { MongoTailableCursorError } = require("mongodb");
 
 //database connection   
@@ -71,17 +78,18 @@ app.use(passUserToView);
 app.get("/", (req, res) => {
 
   res.render("index.ejs");
+
 });
 
-
-//Controllers Auth Route:
+//Mount controllers Auth Route:
 app.use("/auth", authController);
 
-//Route Protection - USER ONLY AREA!:
-app.get("/vip-lounge", isSignedIn, (req, res) => {
+//Mount controllers agency/platform/job Route:
+app.use('/agency', isSignedIn, agencyController);
 
-  res.send(`Welcome to the party ${req.session.user.username}.`);
-});
+app.use('/platform', isSignedIn, platformController);
+
+app.use('/job', isSignedIn, jobController);
 
 
 
