@@ -33,10 +33,18 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
 
-  const jobs = await Job.find({});
+  try {
 
-  res.json(jobs);
+    const jobs = await Job.find({});
 
+    res.json(jobs);
+
+  } catch (err) {
+
+    res.status(500).send(err);
+
+  }
+  
 });
 
 module.exports = router;

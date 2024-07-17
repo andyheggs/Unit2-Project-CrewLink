@@ -5,9 +5,18 @@ const User = require('../models/user');
 // Route to list all users seeded data
 router.get('/', async (req, res) => {
 
-  const users = await User.find({}).populate('agencies platforms');
+  try {
 
-  res.json(users);
+    const users = await User.find({}).populate('agencies platforms');
+
+    res.json(users);
+
+  } catch (err) {
+
+    res.status(500).send(err);
+
+  }
+  
 });
 
 

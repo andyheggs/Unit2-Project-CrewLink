@@ -33,10 +33,16 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
 
-  const agencies = await Agency.find({});
+  try {
 
-  res.json(agencies);
+    const agencies = await Agency.find({});
 
+    res.json(agencies);
+
+  } catch (err) {
+    
+    res.status(500).send(err);
+  }
 });
 
 module.exports = router;

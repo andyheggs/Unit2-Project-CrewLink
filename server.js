@@ -26,12 +26,14 @@ const port = process.env.PORT ? process.env.PORT : "3000";
 //import authController router object:
 const authController = require("./controllers/auth.js");
 
-//Import Controller router objects agency/platform/job: 
+//Import Controller router objects agency/platform/job/user: 
 const agencyController = require('./controllers/agency');
 
 const platformController = require('./controllers/platform');
 
 const jobController = require('./controllers/job');
+
+const userController = require('./controllers/user');
 
 
 //database connection   
@@ -51,6 +53,12 @@ app.use(methodOverride("_method"));
 
 // Morgan for logging HTTP requests
 app.use(morgan('dev'));
+
+//Enabling use of seeding data:
+app.use('/agencies', agencyController);
+app.use('/platforms', platformController);
+app.use('/jobs', jobController);
+app.use('/users', userController);
 
 //Middleware for Session Management:
 app.use

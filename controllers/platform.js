@@ -34,10 +34,16 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
 
-  const platforms = await Platform.find({});
+  try {
 
-  res.json(platforms);
+    const platforms = await Platform.find({});
 
+    res.json(platforms);
+
+  } catch (err) {
+    
+    res.status(500).send(err);
+  }
 });
 
 
