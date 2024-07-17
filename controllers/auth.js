@@ -20,9 +20,9 @@ router.get("/sign-up", (req, res) => {
 router.post("/sign-up", async (req, res) => {
 
     //Verify new user a/c req. does not alread exist in DB
-    const userInDatabase = await User.findOne({ username: req.body.username});
+    const userInDatabase = await User.findOne({ email: req.body.email});
     if (userInDatabase) {
-        return res.send("email address already registered.");
+        return res.send("Email address already registered.");
     }
 
     // Verify correct password entry
@@ -36,11 +36,11 @@ router.post("/sign-up", async (req, res) => {
 
     //create the user in the database upon validation:
     const user = await User.create(req. body);
-    res.send (`Thanks for signing-up ${user.username}`);
+    res.send (`Thanks for signing-up ${user.email}`);
 
     //send new user straight to session area on sign up, without the need to login again:
     req.session.user = {
-        username: user.username,
+        email: user.email,
       };
       
       req.session.save(() => {
@@ -60,7 +60,7 @@ router.post("/sign-in", async (req, res) => {
 
 
     // 1. Check if user a/c exists in DB
-    const userInDatabase = await User.findOne({ username: req.body.username});
+    const userInDatabase = await User.findOne({ email: req.body.email});
     if (!userInDatabase) {
         return res.send("Login failed. Please try again");
     };
@@ -76,7 +76,7 @@ router.post("/sign-in", async (req, res) => {
 
     // 3. (1.) and (2.) are satifsfied, enable session:
     req.session.user = {
-        username: userInDatabase.username,
+        email: userInDatabase.email,
     };
     //mitigate race condition with async call back for saving sessions
     req.session.save(() => {

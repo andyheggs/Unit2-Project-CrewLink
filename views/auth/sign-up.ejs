@@ -28,14 +28,13 @@
     <h1>Sign-up to CrewLink!</h1>
 
     <form action="/auth/sign-up" method="POST">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username"/>
+      <label for="email">Email:</label>
+      <input type="email" name="email" required><br>
       <label for="password">Password:</label>
-      <input type="password" name="password" id="password"/>
+      <input type="password" name="password" required><br>
       <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" name="confirmPassword" id="confirmPassword"/>
-      <button type="submit">Sign up</button>
+      <input type="password" name="confirmPassword" required><br>
+      <button type="submit">Sign Up</button>
     </form>
-    
   </body>
-</html>
+  </html>

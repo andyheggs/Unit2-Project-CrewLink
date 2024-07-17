@@ -33,7 +33,6 @@ const platformController = require('./controllers/platform');
 
 const jobController = require('./controllers/job');
 
-const { MongoTailableCursorError } = require("mongodb");
 
 //database connection   
 mongoose.connect(process.env.MONGODB_URI);

@@ -23,9 +23,17 @@
 
     <% if (user) { %>
 
-      <div class = userSessionStatus>Hi <%= user.username %> you're logged in!</div> 
+      <div class = userSessionStatus>Hi <%= user.email %> you're logged in!</div> 
 
         <a href="/auth/sign-out"><button type="submit">Sign out</button></a>
+
+        <a href="/agency/new">Add New Agency</a><br>
+
+        <a href="/platform/new">Add New Platform</a><br>
+
+        <a href="/job/new">Add New Job</a><br>
+        
+        <a href="/auth/sign-out">Sign Out</a>
 
       <% } else { %>
 

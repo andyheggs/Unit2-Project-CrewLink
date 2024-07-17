@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add New Agency</title>
+  <style>
+
+    body {
+        
+        background-color: #3a434f;
+        color: turquoise
+    }
+
+    img {
+        max-width: 100%;
+        height:auto;
+        width: 300px;
+        
+    }
+</style>
+</head>
+<body>
+
+<a href="https://imgur.com/q3BEaBX">
+    <img src="https://i.imgur.com/q3BEaBX.png" alt= "Logo of CrewLink, with the text within a horizontal oval in a white and turquoise colour scheme and dark grey background" title="source: imgur.com" /></a>  <h1>Add New Agency</h1>
+  
+  <form action="/agency" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" required><br>
+    <label for="profileLoginUrl">Profile Login URL:</label>
+    <input type="text" name="profileLoginUrl" required><br>
+    <label for="agentName">Agent Name:</label>
+    <input type="text" name="agentName"><br>
+    <label for="agentEmail">Agent Email:</label>
+    <input type="text" name="agentEmail"><br>
+    <label for="agentTelNo">Agent Tel No:</label>
+    <input type="text" name="agentTelNo"><br>
+    <label for="streetAddress">Street Address:</label>
+    <input type="text" name="streetAddress"><br>
+    <label for="city">City:</label>
+    <input type="text" name="city"><br>
+    <label for="country">Country:</label>
+    <input type="text" name="country"><br>
+    <label for="contactNumber">Contact Number:</label>
+    <input type="text" name="contactNumber"><br>
+    <label for="operatingHours">Operating Hours:</label>
+    <input type="text" name="operatingHours"><br>
+    <button type="submit">Add Agency</button>
+  </form>
+</body>
+</html>
