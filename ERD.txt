@@ -1,0 +1,39 @@
+User:
+    
+    Attributes: _id, name, email, password
+
+    Relationships:
+        Has many Agencies (one-to-many)
+        Has many Platforms (one-to-many)
+
+
+Agency:
+    
+    Attributes: _id, name, profileLoginUrl, agentName, agentEmail, agentTelNo, streetAddress, city, country, contactNumber, operatingHours
+
+    Relationships:
+        Belongs to one User (many-to-one)
+        Has many Jobs (one-to-many)
+
+Platform:
+    
+    Attributes: _id, name, profileLoginUrl, contactNumber
+
+    Relationships:
+        Belongs to one User (many-to-one)
+        Has many Jobs (one-to-many)
+
+
+Job:
+    
+    Attributes: _id, url, title, referenceNumber, closingDate, status, notes
+
+    Relationships:
+        Belongs to one Agency or Platform (many-to-one)
+
+Visual Representation:
+
+    User (1) ————< (M) Agency
+    User (1) ————< (M) Platform
+    Agency (1) ————< (M) Job
+    Platform (1) ————< (M) Job

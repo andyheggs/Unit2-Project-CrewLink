@@ -1,0 +1,36 @@
+.
+├── controllers
+│   ├── agency.js
+│   ├── auth.js
+│   ├── job.js
+│   ├── platform.js
+│   └── user.js
+├── directory_structure.txt
+├── middleware
+│   ├── is-signed-in.js
+│   └── pass-user-to-view.js
+├── models
+│   ├── agency.js
+│   ├── job.js
+│   ├── platform.js
+│   └── user.js
+├── package-lock.json
+├── package.json
+├── seed.js
+├── server.js
+└── views
+    ├── agency
+    │   └── new.ejs
+    ├── auth
+    │   ├── sign-in.ejs
+    │   └── sign-up.ejs
+    ├── dashboard.ejs
+    ├── index.ejs
+    ├── job
+    │   └── new.ejs
+    ├── partials
+    │   └── _navbar.ejs
+    └── platform
+        └── new.ejs
+
+9 directories, 24 files

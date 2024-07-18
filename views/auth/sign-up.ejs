@@ -3,38 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />    
     <title>Sign Up</title>
     <style>
-
-        body {
-            
+        body {            
             background-color: #3a434f;
             color: turquoise
         }
-
         img {
             max-width: 100%;
             height:auto;
-            width: 300px;
-            
+            width: 300px;            
         }
     </style>
   </head>
   <body>
+    <a href='https://imgur.com/q3BEaBX'>
 
-    <a href="https://imgur.com/q3BEaBX">
-        <img src="https://i.imgur.com/q3BEaBX.png" alt= "Logo of CrewLink, with the text within a horizontal oval in a white and turquoise colour scheme and dark grey background" title="source: imgur.com" /></a>
+        <img src='https://i.imgur.com/q3BEaBX.png' alt= 'Logo of CrewLink, with the text within a horizontal oval in a white and turquoise colour scheme and dark grey background' title='source: imgur.com' /></a>
 
     <h1>Sign-up to CrewLink!</h1>
 
-    <form action="/auth/sign-up" method="POST">
-      <label for="email">Email:</label>
-      <input type="email" name="email" required><br>
-      <label for="password">Password:</label>
-      <input type="password" name="password" required><br>
-      <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" name="confirmPassword" required><br>
-      <button type="submit">Sign Up</button>
+    <form action='/auth/sign-up' method='POST'>
+
+      <label for='username'>Username:</label>
+
+      <input type='username' name='username' required><br>
+
+      <label for='password'>Password:</label>
+
+      <input type='password' name='password' required><br>
+
+      <label for='confirmPassword'>Confirm Password:</label>
+      
+      <input type='password' name='confirmPassword' required><br>
+
+      <button type='submit'>Sign Up</button>
+      
     </form>
   </body>
   </html>

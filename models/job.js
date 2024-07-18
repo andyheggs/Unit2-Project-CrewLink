@@ -1,10 +1,10 @@
-// Schema to access dockwalking & networking interactions
+// Schema to access the addiotn of jobs
 
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const JobSchema = new mongoose.Schema({
+const jobSchema = new mongoose.Schema({
 
     url: { type: String, required: true },
 
@@ -24,6 +24,6 @@ const JobSchema = new mongoose.Schema({
 
 });
 
-const Job = mongoose.model("Job", JobSchema);
+const Job = mongoose.model('Job', jobSchema);
 
 module.exports = Job;

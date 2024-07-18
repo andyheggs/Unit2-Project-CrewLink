@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const PlatformSchema = new mongoose.Schema({
+const platformSchema = new mongoose.Schema({
 
     name: { type: String, required: true },
 
@@ -16,6 +16,6 @@ const PlatformSchema = new mongoose.Schema({
 
 });
 
-const Platform = mongoose.model("Platform", PlatformSchema);
+const Platform = mongoose.model('Platform', platformSchema);
 
 module.exports = Platform;

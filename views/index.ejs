@@ -3,24 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>CrewLink</title>
-
-    <style>
-        body {
-            background-color: #3a434f;
-            color: turquoise
-        }
-        
-        img {
-            max-width: 100%;
-            height:auto;
-            width: 600px;
-        }
-    </style>
   </head>
   <body>
+    <%- include('./partials/_navbar.ejs') %>
 
+    <div class="landing-image"></div>
+
+    <!--
+    
     <% if (user) { %>
 
       <div class = userSessionStatus>Hi <%= user.email %> you're logged in!</div> 
@@ -49,14 +41,6 @@
       
 
       <% } %>
-      
-    <a href="https://imgur.com/hnsmRII">
-
-        <img src="https://i.imgur.com/hnsmRII.png" alt="Logo of CrewLink, with the text within a horizontal oval with network nodes protruding from the oval in turquoise featuring crew ranking insignia" title="source: imgur.com">
-    </a>
-    <h2>
-        "The Recruitment Hub for Superyacht Crew"
-    </h2>
-
+      -->
   </body>
 </html>

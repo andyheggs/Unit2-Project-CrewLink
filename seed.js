@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const User = require('./models/user');
@@ -8,8 +9,8 @@ const Job = require('./models/job');
 // Load environment variables from .env file
 require('dotenv').config();
 
-// Connect to the database
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+// Connect to the database 
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('Database connected');
     seed();
@@ -21,11 +22,6 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 // Seed data
 async function seed() {
   try {
-    // Clear existing data
-    await User.deleteMany({});
-    await Agency.deleteMany({});
-    await Platform.deleteMany({});
-    await Job.deleteMany({});
 
     // Create test agencies
     const agency1 = await Agency.create({
@@ -93,7 +89,7 @@ async function seed() {
 
     // Create test user
     const user = await User.create({
-      email: 'testuser@example.com',
+      username: 'testuser@example.com',
       password: hashedPassword,
       agencies: [agency1._id, agency2._id],
       platforms: [platform1._id, platform2._id]

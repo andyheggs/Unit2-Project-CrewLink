@@ -1,45 +1,41 @@
-const dotenv = require("dotenv");
+const dotenv = require('dotenv');
 dotenv.config();
 
-const express = require("express");
+const express = require('express');
 const app = express();
 
-const mongoose = require("mongoose");
-const methodOverride = require("method-override");
-const morgan = require("morgan");
+const mongoose = require('mongoose');
+const methodOverride = require('method-override');
+const morgan = require('morgan');
 
-//Session Management:
-const session = require("express-session");
+// Session Management
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
-// Session saving functionality:
-const MongoStore = require("connect-mongo");
+// Import Middleware Route Protection
+const isSignedIn = require('./middleware/is-signed-in');
 
-//Import Middleware Route Protection:
-const isSignedIn = require("./middleware/is-signed-in.js");
-
-//Import middleware for blanket user session info on all views
-const passUserToView = require("./middleware/pass-user-to-view.js");
+// Import middleware for blanket user session info on all views
+const passUserToView = require('./middleware/pass-user-to-view');
 
 // Set the port from environment variable or default to 3000
-const port = process.env.PORT ? process.env.PORT : "3000";
+const port = process.env.PORT || 3000;
 
-//import authController router object:
-const authController = require("./controllers/auth.js");
+//require path to enable express static css styling:
+const path = require('path');
 
-//Import Controller router objects agency/platform/job/user: 
+// Import Controller router objects
+const authController = require('./controllers/auth');
 const agencyController = require('./controllers/agency');
-
 const platformController = require('./controllers/platform');
-
 const jobController = require('./controllers/job');
-
 const userController = require('./controllers/user');
+const { db } = require('./models/user');
 
-
-//database connection   
+// Database connection   
 mongoose.connect(process.env.MONGODB_URI);
-    
-mongoose.connection.on("connected", () => {
+
+mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
 
@@ -49,56 +45,47 @@ mongoose.connection.on("connected", () => {
 app.use(express.urlencoded({ extended: false }));
 
 // Middleware for using HTTP verbs such as PUT or DELETE
-app.use(methodOverride("_method"));
+app.use(methodOverride('_method'));
 
 // Morgan for logging HTTP requests
 app.use(morgan('dev'));
 
-//Enabling use of seeding data:
-app.use('/agencies', agencyController);
-app.use('/platforms', platformController);
-app.use('/jobs', jobController);
-app.use('/users', userController);
+//Middleware for CSS Styling:
+app.use(express.static(path.join(__dirname, 'public')));
 
-//Middleware for Session Management:
-app.use
-  (session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-
-    //Session saving via MongoDB
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI,
-    }), 
-  })
-);
+// Middleware for Session Management
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI,
+  }),
+}));
 
 // Custom Middleware for blanket user session info on all page views
 app.use(passUserToView);
 
 //-------------------------------------------------------ROUTES-------------------------------------------------------
 
-//Home Page Route
-
-//update landing page to recognise users session (user:req.session.user, });  });) removed - and upgraded with res.locals blanket session middleware
-app.get("/", (req, res) => {
-
-  res.render("index.ejs");
-
+// Home Page Route
+app.get('/', (req, res) => {
+  res.render('index.ejs');
 });
 
-//Mount controllers Auth Route:
-app.use("/auth", authController);
+// Mount controllers
+app.use('/auth', authController);
+app.use('/agencies', isSignedIn, agencyController);
+app.use('/platforms', isSignedIn, platformController);
+app.use('/jobs', isSignedIn, jobController);
+app.use('/users', isSignedIn, userController);
 
-//Mount controllers agency/platform/job Route:
-app.use('/agency', isSignedIn, agencyController);
+// Dashboard route explicily defined:
+app.get('/dashboard', isSignedIn, (req, res) => {
 
-app.use('/platform', isSignedIn, platformController);
-
-app.use('/job', isSignedIn, jobController);
-
-
+  res.redirect('/users/dashboard');
+  
+});
 
 //-------------------------------------------------------START THE SERVER-------------------------------------------------------
 

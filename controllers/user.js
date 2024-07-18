@@ -1,23 +1,50 @@
 const express = require('express');
+
 const router = express.Router();
+
 const User = require('../models/user');
 
-// Route to list all users seeded data
-router.get('/', async (req, res) => {
+//------------------------------------------------Retrieve User Dashboard------------------------------------------------
+
+router.get('/dashboard', async (req, res) => {
 
   try {
 
-    const users = await User.find({}).populate('agencies platforms');
+    const user = await User.findById(req.session.user._id)
 
-    res.json(users);
+      .populate('agencies platforms')
+
+      .populate({
+
+        path: 'agencies',
+
+        populate: {
+
+          path: 'jobs'
+
+        }
+
+      })
+
+      .populate({
+
+        path: 'platforms',
+
+        populate: {
+
+          path: 'jobs'
+
+        }
+      });
+
+    res.render('dashboard', { user });
 
   } catch (err) {
 
     res.status(500).send(err);
 
   }
-  
-});
 
+});
 
 module.exports = router;

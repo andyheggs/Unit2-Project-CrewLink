@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const AgencySchema = new mongoose.Schema({
+const agencySchema = new mongoose.Schema({
 
     name: { type: String, required: true },
 
@@ -30,7 +30,7 @@ const AgencySchema = new mongoose.Schema({
 
 });
 
-const Agency = mongoose.model("Agency", AgencySchema);
+const Agency = mongoose.model('Agency', agencySchema);
 
 module.exports = Agency;
 

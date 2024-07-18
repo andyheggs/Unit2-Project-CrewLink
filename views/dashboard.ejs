@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Dashboard</title>
+  <style>
+
+    body {
+        
+        background-color: #3a434f;
+        color: turquoise
+    }
+
+    img {
+        max-width: 100%;
+        height:auto;
+        width: 300px;
+        
+    }
+</style>
+</head>
+<body>
+
+<a href='https://imgur.com/q3BEaBX'>
+  
+    <img src='https://i.imgur.com/q3BEaBX.png' alt= 'Logo of CrewLink, with the text within a horizontal oval in a white and turquoise colour scheme and dark grey background' title='source: imgur.com' /></a>
+
+  <h1>Welcome, <%= user.email %></h1>
+
+  <h2>Your Agencies</h2>
+
+  <ul>
+
+    <% user.agencies.forEach(function(agency) { %>
+
+      <li>
+
+        <h3><%= agency.name %></h3>
+
+        <p>Profile Login URL: <%= agency.profileLoginUrl %></p>
+
+        <p>Agent Name: <%= agency.agentName %></p>
+
+        <p>Agent Email: <%= agency.agentEmail %></p>
+
+        <p>Agent Tel No: <%= agency.agentTelNo %></p>
+
+        <p>Street Address: <%= agency.streetAddress %></p>
+
+        <p>City: <%= agency.city %></p>
+        
+        <p>Country: <%= agency.country %></p>
+
+        <p>Contact Number: <%= agency.contactNumber %></p>
+
+        <p>Operating Hours: <%= agency.operatingHours %></p>
+
+        <h4>Jobs:</h4>
+
+        <ul>
+
+          <% agency.jobs.forEach(function(job) { %>
+
+            <li><%= job.title %> - <%= job.status %></li>
+
+          <% }) %>
+
+        </ul>
+
+      </li>
+
+    <% }) %>
+
+  </ul>
+
+  <h2>Your Platforms</h2>
+
+  <ul>
+
+    <% user.platforms.forEach(function(platform) { %>
+
+      <li>
+
+        <h3><%= platform.name %></h3>
+
+        <p>Profile Login URL: <%= platform.profileLoginUrl %></p>
+
+        <p>Contact Number: <%= platform.contactNumber %></p>
+
+        <h4>Jobs:</h4>
+
+        <ul>
+
+          <% platform.jobs.forEach(function(job) { %>
+
+            <li><%= job.title %> - <%= job.status %></li>
+
+          <% }) %>
+
+        </ul>
+
+      </li>
+
+    <% }) %>
+
+  </ul>
+  
+</body>
+</html>
