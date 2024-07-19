@@ -84,7 +84,7 @@ app.use('/users', isSignedIn, userController);
 
 // Dashboard route explicitly defined
 app.get('/dashboard', isSignedIn, (req, res) => {
-  const user = req.session.user; // Adjust this based on where user info is stored
+  const user = req.session.user; 
   if (user) {
     res.render('dashboard/dashboard.ejs', { user });
   } else {

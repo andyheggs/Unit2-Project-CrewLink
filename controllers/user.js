@@ -12,30 +12,25 @@ router.get('/dashboard', async (req, res) => {
 
     const user = await User.findById(req.session.user._id)
 
-      .populate('agencies platforms')
+    .populate('agencies')
 
-      .populate({
+    .populate('platforms')
 
-        path: 'agencies',
+    .populate({
 
-        populate: {
+      path: 'agencies',
 
-          path: 'jobs'
+      populate: { path: 'jobs' }
 
-        }
+    })
 
-      })
+    .populate({
 
-      .populate({
+      path: 'platforms',
 
-        path: 'platforms',
-
-        populate: {
-
-          path: 'jobs'
-
-        }
-      });
+      populate: { path: 'jobs' }
+      
+    });
 
     res.render('dashboard', { user });
 
