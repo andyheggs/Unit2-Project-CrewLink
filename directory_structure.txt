@@ -15,6 +15,10 @@
 │   ├── job.js
 │   ├── platform.js
 │   └── user.js
+├── netlify
+│   └── functions
+│       └── api.js
+├── netlify.toml
 ├── package-lock.json
 ├── package.json
 ├── public
@@ -38,4 +42,4 @@
     └── platform
         └── new.ejs
 
-12 directories, 26 files
+14 directories, 28 files

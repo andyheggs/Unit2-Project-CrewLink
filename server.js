@@ -75,10 +75,10 @@ app.get('/', (req, res) => {
 
 // Mount controllers
 app.use('/auth', authController);
-app.use('/agencies', isSignedIn, agencyController);
-app.use('/platforms', isSignedIn, platformController);
-app.use('/jobs', isSignedIn, jobController);
-app.use('/users', isSignedIn, userController);
+app.use('/agency', isSignedIn, agencyController);
+app.use('/platform', isSignedIn, platformController);
+app.use('/job', isSignedIn, jobController);
+app.use('/user', isSignedIn, userController);
 
 // Dashboard route explicily defined:
 app.get('/dashboard', isSignedIn, (req, res) => {

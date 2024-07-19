@@ -19,35 +19,7 @@
     <%- include('./partials/_navbar.ejs') %>
 
     <div class="landing-image"></div>
-
-    <% if (user) { %>
-
-      <div class = userSessionStatus>Hi <%= user.email %> you're logged in!</div> 
-
-        <a href="/auth/sign-out"><button type="submit">Sign out</button></a>
-
-        <a href="/agency/new">Add New Agency</a><br>
-
-        <a href="/platform/new">Add New Platform</a><br>
-
-        <a href="/job/new">Add New Job</a><br>
-        
-        <a href="/auth/sign-out">Sign Out</a>
-
-      <% } else { %>
-
-      <div class = userSessionStatus>Welcome to CrewLink, Guest.</div>
-
-      <a href="/auth/sign-up"><button type="submit">Sign up</button></a>
-
-        <div class = signUpRequest>Sign-up now to create your hub!</div>
-        
-      or  
-            
-      <a href="/auth/sign-in"><button type="submit">Sign in</button></a>      
-
-    <% } %>
-    
+  
   </body>
 
 </html>
