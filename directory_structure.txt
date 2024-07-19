@@ -1,4 +1,5 @@
 .
+├── ERD.txt
 ├── controllers
 │   ├── agency.js
 │   ├── auth.js
@@ -16,6 +17,9 @@
 │   └── user.js
 ├── package-lock.json
 ├── package.json
+├── public
+│   └── stylesheets
+│       └── style.css
 ├── seed.js
 ├── server.js
 └── views
@@ -24,7 +28,8 @@
     ├── auth
     │   ├── sign-in.ejs
     │   └── sign-up.ejs
-    ├── dashboard.ejs
+    ├── dashboard
+    │   └── dashboard.ejs
     ├── index.ejs
     ├── job
     │   └── new.ejs
@@ -33,4 +38,4 @@
     └── platform
         └── new.ejs
 
-9 directories, 24 files
+12 directories, 26 files

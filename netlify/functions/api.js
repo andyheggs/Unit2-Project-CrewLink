@@ -1,36 +1,37 @@
+// Import dotenv to handle environment variables
 const dotenv = require('dotenv');
 dotenv.config();
 
+// Import the serverless-http package to handle serverless functions
+const serverless = require('serverless-http');
+
+// Import express
 const express = require('express');
 const app = express();
 
+// Import mongoose for MongoDB interaction
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 
-// Session Management
+// Session Management packages
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
-// Import Middleware Route Protection
-const isSignedIn = require('./middleware/is-signed-in');
+// Middleware for route protection and user session info
+const isSignedIn = require('../../middleware/is-signed-in');
+const passUserToView = require('../../middleware/pass-user-to-view');
 
-// Import middleware for blanket user session info on all views
-const passUserToView = require('./middleware/pass-user-to-view');
-
-// Set the port from environment variable or default to 3000
-const port = process.env.PORT || 3000;
-
-//require path to enable express static css styling:
+// Require path for static file serving (public folder)
 const path = require('path');
 
 // Import Controller router objects
-const authController = require('./controllers/auth.js');
-const agencyController = require('./controllers/agency.js');
-const platformController = require('./controllers/platform.js');
-const jobController = require('./controllers/job.js');
-const userController = require('./controllers/user.js');
-const { db } = require('./models/user');
+// Update paths to reflect the new structure
+const authController = require('../../controllers/auth.js');
+const agencyController = require('../../controllers/agency.js');
+const platformController = require('../../controllers/platform.js');
+const jobController = require('../../controllers/job.js');
+const userController = require('../../controllers/user.js');
 
 // Database connection   
 mongoose.connect(process.env.MONGODB_URI);
@@ -50,8 +51,9 @@ app.use(methodOverride('_method'));
 // Morgan for logging HTTP requests
 app.use(morgan('dev'));
 
-//Middleware for CSS Styling:
-app.use(express.static(path.join(__dirname, 'public')));
+// Middleware for serving static files from the "public" folder
+// Updated to work with Netlify
+app.use(express.static('public'));
 
 // Middleware for Session Management
 app.use(session({
@@ -80,7 +82,7 @@ app.use('/platforms', isSignedIn, platformController);
 app.use('/jobs', isSignedIn, jobController);
 app.use('/users', isSignedIn, userController);
 
-// Dashboard route explicily defined:
+// Dashboard route explicitly defined
 app.get('/dashboard', isSignedIn, (req, res) => {
   const user = req.session.user; // Adjust this based on where user info is stored
   if (user) {
@@ -90,10 +92,8 @@ app.get('/dashboard', isSignedIn, (req, res) => {
   }
 });
 
-  
+//-------------------------------------------------------SERVERLESS HANDLER-------------------------------------------------------
 
-//-------------------------------------------------------START THE SERVER-------------------------------------------------------
-
-app.listen(port, () => {
-  console.log(`The express app is ready on port ${port}!`);
-});
+// Remove the code to set the PORT and the app.listen call
+// Export the serverless handler instead
+module.exports.handler = serverless(app);

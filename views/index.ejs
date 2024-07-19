@@ -1,18 +1,25 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
   <head>
+
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="/stylesheets/style.css" />
+
     <title>CrewLink</title>
+
   </head>
+
   <body>
+
     <%- include('./partials/_navbar.ejs') %>
 
     <div class="landing-image"></div>
 
-    <!--
-    
     <% if (user) { %>
 
       <div class = userSessionStatus>Hi <%= user.email %> you're logged in!</div> 
@@ -37,10 +44,10 @@
         
       or  
             
-      <a href="/auth/sign-in"><button type="submit">Sign in</button></a>
-      
+      <a href="/auth/sign-in"><button type="submit">Sign in</button></a>      
 
-      <% } %>
-      -->
+    <% } %>
+    
   </body>
+
 </html>

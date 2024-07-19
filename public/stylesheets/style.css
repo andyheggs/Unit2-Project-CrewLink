@@ -20,8 +20,8 @@ body {
     background-image: url('https://i.imgur.com/pzj5Byp.png');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 60px; /* Set this to match the approximate height of auth-links */
-    width: 60px; /* Maintain oval shape, you can adjust the width if needed */
+    height: 60px; 
+    width: 60px; /* Maintain oval shape */
     margin: 0 20px;
 }
   

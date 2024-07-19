@@ -42,6 +42,8 @@ router.post('/sign-up', async (req, res) => {
     req.session.user = {
         _id: user._id,
         username: user.username,
+        //defaults agencies to an empty array if undefined
+        agencies: user.agencies || []
       };
       
       req.session.save(() => {

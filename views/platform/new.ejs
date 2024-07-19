@@ -1,51 +1,43 @@
 <!DOCTYPE html>
+
 <html lang='en'>
+
   <head>
+
     <meta charset='UTF-8' />
+
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+
     <link rel="stylesheet" href="/stylesheets/style.css" />
-  <title>Add New Platform</title>
-  <style>
 
-    body {
-        
-        background-color: #3a434f;
-        color: turquoise
-    }
+    <title>Add New Platform</title>
 
-    img {
-        max-width: 100%;
-        height:auto;
-        width: 300px;
-        
-    }
-</style>
 </head>
+
 <body>
 
-<a href='https://imgur.com/q3BEaBX'>
-  
-    <img src='https://i.imgur.com/q3BEaBX.png' alt= 'Logo of CrewLink, with the text within a horizontal oval in a white and turquoise colour scheme and dark grey background' title='source: imgur.com' /></a>
+    <h1>Add New Platform</h1>
 
-  <h1>Add New Platform</h1>
+    <form action='/platform' method='POST'>
 
-  <form action='/platform' method='POST'>
+      <label for='name'>Name:</label>
 
-    <label for='name'>Name:</label>
+      <input type='text' name='name' required><br>
 
-    <input type='text' name='name' required><br>
 
-    <label for='profileLoginUrl'>Profile Login URL:</label>
+      <label for='profileLoginUrl'>Profile Login URL:</label>
 
-    <input type='text' name='profileLoginUrl' required><br>
+      <input type='text' name='profileLoginUrl' required><br>
 
-    <label for='contactNumber'>Contact Number:</label>
 
-    <input type='text' name='contactNumber'><br>
+      <label for='contactNumber'>Contact Number:</label>
 
-    <button type='submit'>Add Platform</button>
+      <input type='text' name='contactNumber'><br>
+      
 
-  </form>
+      <button type='submit'>Add Platform</button>
+
+    </form>
 
 </body>
 
