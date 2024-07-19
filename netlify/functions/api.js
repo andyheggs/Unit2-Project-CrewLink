@@ -22,8 +22,7 @@ const MongoStore = require('connect-mongo');
 const isSignedIn = require('../../middleware/is-signed-in');
 const passUserToView = require('../../middleware/pass-user-to-view');
 
-// Require path for static file serving (public folder)
-const path = require('path');
+
 
 // Import Controller router objects
 // Update paths to reflect the new structure
