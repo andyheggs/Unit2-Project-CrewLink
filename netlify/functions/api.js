@@ -28,9 +28,6 @@ const passUserToView = require('../../middleware/pass-user-to-view');
 // Update paths to reflect the new structure
 const authController = require('../../controllers/auth.js');
 const agencyController = require('../../controllers/agency.js');
-const platformController = require('../../controllers/platform.js');
-const jobController = require('../../controllers/job.js');
-const userController = require('../../controllers/user.js');
 
 // Database connection   
 mongoose.connect(process.env.MONGODB_URI);
@@ -77,20 +74,12 @@ app.get('/', (req, res) => {
 // Mount controllers
 app.use('/auth', authController);
 app.use('/agencies', isSignedIn, agencyController);
-app.use('/platforms', isSignedIn, platformController);
-app.use('/jobs', isSignedIn, jobController);
-app.use('/users', isSignedIn, userController);
 
-// Dashboard route explicitly defined
-app.get('/dashboard', isSignedIn, (req, res) => {
-  const user = req.session.user; 
-  if (user) {
-    res.render('dashboard/dashboard.ejs', { user });
-  } else {
-    res.redirect('/auth/sign-in'); 
-  }
-});
 
+// Page Error (404)
+app.get('*', (req, res) => {
+  res.render('404.ejs')
+})  
 //-------------------------------------------------------SERVERLESS HANDLER-------------------------------------------------------
 
 // Remove the code to set the PORT and the app.listen call
