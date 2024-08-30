@@ -27,7 +27,7 @@ const passUserToView = require('../../middleware/pass-user-to-view');
 // Import Controller router objects
 // Update paths to reflect the new structure
 const authController = require('../../controllers/auth.js');
-const agencyController = require('../../controllers/agency.js');
+const agencyController = require('../../controllers/agencies.js');
 
 // Database connection   
 mongoose.connect(process.env.MONGODB_URI);
