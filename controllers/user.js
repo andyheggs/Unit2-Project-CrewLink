@@ -1,3 +1,4 @@
+/*
 const express = require('express');
 
 const router = express.Router();
@@ -12,15 +13,15 @@ router.get('/dashboard', async (req, res) => {
 
     const user = await User.findById(req.session.user._id)
 
-    .populate('agencies')
+      .populate('agencies')
 
-    .populate('platforms')
+      .populate('platforms')
 
-    .populate({
+      .populate({
 
-      path: 'agencies',
+        path: 'agencies',
 
-      populate: { path: 'jobs' }
+        populate: { path: 'jobs' }
 
     })
 
@@ -43,3 +44,4 @@ router.get('/dashboard', async (req, res) => {
 });
 
 module.exports = router;
+*/

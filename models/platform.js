@@ -1,5 +1,6 @@
 // Schema to access Crew employment platforms & jobs
 
+/*
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
@@ -19,3 +20,4 @@ const platformSchema = new mongoose.Schema({
 const Platform = mongoose.model('Platform', platformSchema);
 
 module.exports = Platform;
+*/

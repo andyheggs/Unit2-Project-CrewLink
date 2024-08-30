@@ -1,10 +1,10 @@
 .
 ├── ERD.txt
 ├── controllers
-│   ├── agency.js
+│   ├── agencies.js
 │   ├── auth.js
-│   ├── job.js
-│   ├── platform.js
+│   ├── jobs.js
+│   ├── platforms.js
 │   └── user.js
 ├── directory_structure.txt
 ├── middleware
@@ -27,19 +27,29 @@
 ├── seed.js
 ├── server.js
 └── views
-    ├── agency
-    │   └── new.ejs
+    ├── 404.ejs
+    ├── agencies
+    │   ├── edit.ejs
+    │   ├── index.ejs
+    │   ├── new.ejs
+    │   └── show.ejs
     ├── auth
     │   ├── sign-in.ejs
     │   └── sign-up.ejs
     ├── dashboard
     │   └── dashboard.ejs
     ├── index.ejs
-    ├── job
-    │   └── new.ejs
+    ├── jobs
+    │   ├── edit.ejs
+    │   ├── index.ejs
+    │   ├── new.ejs
+    │   └── show.ejs
     ├── partials
     │   └── _navbar.ejs
-    └── platform
-        └── new.ejs
+    └── platforms
+        ├── edit.ejs
+        ├── index.ejs
+        ├── new.ejs
+        └── show.ejs
 
-14 directories, 28 files
+14 directories, 38 files

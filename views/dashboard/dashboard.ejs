@@ -1,28 +1,26 @@
+<!--
 <!DOCTYPE html>
+<html lang="en">
 
-<html lang='en'>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Dashboard</title>
+</head>
 
-  <head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
 
-    <meta charset='UTF-8' />
+  <h1>Welcome, <%= user.username %></h1>
 
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <h2>Your Agencies</h2>
 
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-
-    <title>Dashboard</title>
-
-  </head>
-
-  <body>
+  <ul>
     
-    <h1>Welcome, <%= user.email %></h1>
+    <% if (user.agencies && user.agencies.length > 0) { %>
 
-    <h2>Your Agencies</h2>
-
-    <ul>
-
-      <% user.agencies.forEach(function(agency) { %>
+      <% user.agencies.forEach((agency) { %>
 
         <li>
 
@@ -39,7 +37,7 @@
           <p>Street Address: <%= agency.streetAddress %></p>
 
           <p>City: <%= agency.city %></p>
-          
+
           <p>Country: <%= agency.country %></p>
 
           <p>Contact Number: <%= agency.contactNumber %></p>
@@ -49,12 +47,19 @@
           <h4>Jobs:</h4>
 
           <ul>
+            <% if (agency.jobs && agency.jobs.length > 0) { %>
 
-            <% agency.jobs.forEach(function(job) { %>
+              <% agency.jobs.forEach((job) { %>
 
-              <li><%= job.title %> - <%= job.status %></li>
+                <li><%= job.title %> - <%= job.status %></li>
 
-            <% }) %>
+              <% }) %>
+
+            <% } else { %>
+
+              <li>No jobs found.</li>
+
+            <% } %>
 
           </ul>
 
@@ -62,13 +67,20 @@
 
       <% }) %>
 
-    </ul>
+    <% } else { %>
+      
+      <li>No agencies found.</li>
 
-    <h2>Your Platforms</h2>
+    <% } %>
 
-    <ul>
+  </ul>
 
-      <% user.platforms.forEach(function(platform) { %>
+  <h2>Your Platforms</h2>
+
+  <ul>
+    <% if (user.platforms && user.platforms.length > 0) { %>
+
+      <% user.platforms.forEach((platform) { %>
 
         <li>
 
@@ -82,11 +94,19 @@
 
           <ul>
 
-            <% platform.jobs.forEach(function(job) { %>
+            <% if (platform.jobs && platform.jobs.length > 0) { %>
 
-              <li><%= job.title %> - <%= job.status %></li>
+              <% platform.jobs.forEach((job) { %>
 
-            <% }) %>
+                <li><%= job.title %> - <%= job.status %></li>
+
+              <% }) %>
+
+            <% } else { %>
+
+              <li>No jobs found.</li>
+
+            <% } %>
 
           </ul>
 
@@ -94,8 +114,15 @@
 
       <% }) %>
 
-    </ul>
-    
-  </body>
-  
+    <% } else { %>
+
+      <li>No platforms found.</li>
+
+    <% } %>
+
+  </ul>
+
+</body>
+
 </html>
+-->

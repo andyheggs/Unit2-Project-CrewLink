@@ -12,11 +12,20 @@ const morgan = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
-// Import Middleware Route Protection
-const isSignedIn = require('./middleware/is-signed-in');
-
 // Import middleware for blanket user session info on all views
-const passUserToView = require('./middleware/pass-user-to-view');
+const passUserToView = require('./middleware/pass-user-to-view.js');
+
+// Import Middleware Route Protection
+const isSignedIn = require('./middleware/is-signed-in.js');
+
+// Import Controller router objects:
+const authController = require('./controllers/auth.js');
+const agenciesController = require('./controllers/agencies.js');
+
+//stretch deployment:
+//const platformController = require('./controllers/platform.js');
+//const jobController = require('./controllers/job.js');
+//const userController = require('./controllers/user.js');
 
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT || 3000;
@@ -24,19 +33,13 @@ const port = process.env.PORT || 3000;
 //require path to enable express static css styling:
 const path = require('path');
 
-// Import Controller router objects
-const authController = require('./controllers/auth.js');
-const agencyController = require('./controllers/agency.js');
-const platformController = require('./controllers/platform.js');
-const jobController = require('./controllers/job.js');
-const userController = require('./controllers/user.js');
-const { db } = require('./models/user');
-
 // Database connection   
 mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
+
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
+
 });
 
 //-------------------------------------------------------MIDDLEWARE-------------------------------------------------------
@@ -75,25 +78,23 @@ app.get('/', (req, res) => {
 
 // Mount controllers
 app.use('/auth', authController);
-app.use('/agency', isSignedIn, agencyController);
-app.use('/platform', isSignedIn, platformController);
-app.use('/job', isSignedIn, jobController);
-app.use('/user', isSignedIn, userController);
+app.use('/agencies', isSignedIn, agenciesController);
 
-// Dashboard route explicily defined:
-app.get('/dashboard', isSignedIn, (req, res) => {
-  const user = req.session.user; // Adjust this based on where user info is stored
-  if (user) {
-    res.render('dashboard/dashboard.ejs', { user });
-  } else {
-    res.redirect('/auth/sign-in'); 
-  }
-});
+//app.use('/platform', isSignedIn, platformController);
+//app.use('/job', isSignedIn, jobController);
+//app.get('/dashboard', isSignedIn);
+//app.use('/users', isSignedIn, userController);
 
-  
+
+// Page Error (404)
+app.get('*', (req, res) => {
+  res.render('404.ejs')
+})  
 
 //-------------------------------------------------------START THE SERVER-------------------------------------------------------
 
 app.listen(port, () => {
+
   console.log(`The express app is ready on port ${port}!`);
+  
 });

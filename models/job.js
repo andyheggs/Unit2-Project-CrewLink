@@ -1,6 +1,6 @@
 // Schema to access the addiotn of jobs
 
-const mongoose = require('mongoose');
+/*const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -27,3 +27,4 @@ const jobSchema = new mongoose.Schema({
 const Job = mongoose.model('Job', jobSchema);
 
 module.exports = Job;
+*/

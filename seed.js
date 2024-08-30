@@ -1,4 +1,4 @@
-
+/*
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const User = require('./models/user');
@@ -102,3 +102,5 @@ async function seed() {
     mongoose.connection.close();
   }
 }
+
+*/

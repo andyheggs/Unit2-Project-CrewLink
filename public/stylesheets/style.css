@@ -21,16 +21,18 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     height: 60px; 
-    width: 60px; /* Maintain oval shape */
+    width: 210px; 
     margin: 0 20px;
 }
   
   .landing-image {
-    background-image: url(https://i.imgur.com/gan0xy7.jpg);
-    height: 100%;
+    background-image: url('https://i.imgur.com/JU25HPI.jpg');
+    min-height: 110vh;
     background-size: cover;
     background-repeat: no-repeat;
-    margin: 0 0 0 -8px;
+    width: 100%;
+    position: relative;
+    z-index: -10;   
   }
   
   .auth-links,
@@ -78,5 +80,184 @@ body {
     color: #6f8dae;
     text-decoration: underline;
   }
+
+  .landing-page-description {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: #3a434f;
+    border: 5px solid turquoise; 
+    padding: 20px 30px; 
+    border-radius: 60px; 
+    text-align: center; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+    font-weight: bold; 
+    font-style: italic; 
+    font-size: 2.5em
+}
+
+.error-image-404 {
+  position: relative;
+  background-image: url(https://i.imgur.com/d0LPSsM.jpg);
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0 0 0 -8px;
+}
   
-  
+.signup-page,
+.signin-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90%;
+}
+
+.signup-form-container-1,
+.signin-form-container-1 {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-form-container-2,
+.signin-form-container-2 {
+  padding: 10px 30px 20px;
+  border: 1px solid turquoise;
+}
+
+.signup-form-container-2 > h1,
+.signin-form-container-2 > h1 {
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+.signup-form-container-2 > form,
+.signin-form-container-2 > form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.9em;
+}
+
+input {
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 20px;
+  margin: 10px 0;
+  width: 15em;
+  padding: 5px;
+}
+
+.property-display {
+  text-decoration: none;
+  border: 2px solid white;
+  font-weight: bold;
+  border-radius: 20px;
+  text-align: center;
+  width: 100px;
+  height: auto;
+  color: #3a434f;
+  font-size: 0.9em;
+  background-color: turquoise;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+button {
+  border: none;
+  border-radius: 20px;
+  color: #3a434f;
+  font-weight: bold;
+  background-color: turquoise;
+  padding: 7px 15px;
+  margin: 10px 0;
+}
+
+button:hover {
+  color: white;
+  background-color: black;
+}
+
+.signup-img {
+  background-image: url('https://i.imgur.com/C3ZYU9j.jpg');
+  min-height: 110vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40%;
+  position: relative;
+  z-index: -10;
+}
+
+.signin-img {
+  background-image: url('https://i.imgur.com/8lEBtG9.jpg');
+  min-height: 110vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40%;
+  position: relative;
+  z-index: -10;
+  left: -10px;
+}
+
+.index-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  width: 90%;
+}
+
+.index-header > h1 {
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+.index-header > a {
+  padding: 6px 12px;
+  border: 1px solid gray;
+  text-decoration: none;
+  color: black;
+}
+
+.index-header > a:hover {
+  background-color: black;
+  color: white;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 70px;
+}
+
+.card-container > a {
+  padding: 12px 25px;
+  border: 2px solid turquoise;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin: 5px 30px 50px;
+  color: white;
+}
+
+.card-container > a:hover {
+  background-color: black;
+  color: white;
+}
+
+a > h4 {
+  font-weight: normal;
+  font-size: 1em;
+}

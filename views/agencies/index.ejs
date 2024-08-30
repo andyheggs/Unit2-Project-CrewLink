@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Agency Listings</title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+
+  <h1>Here's all your Agency Profiles</h1>    
+  
+  <!-- Wrap the text in an anchor tag to make it clickable -->
+  <a href="/agencies/new" class="property-display">+ Add an Agency</a>
+  
+  <div class="card-container">
+    <% agencies.forEach((agency)=> { %>
+      <a href="/agencies/<%= agency._id %>">
+        <h4><%= agency.name %></h4>
+        <p><%= agency.profileLoginUrl %></p>
+      </a>
+    <% }) %>
+  </div>
+
+  <div class="landing-image"></div> 
+</body>
+</html>

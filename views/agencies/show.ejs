@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+
+  <title><%= agency.name %></title>
+
+</head>
+
+<body>
+  
+  <%- include('../partials/_navbar.ejs') %>
+  
+  <h1>Profile: <%= agency.name %> </h1>     
+
+  <div class='signin-page'>
+
+    <div class='signin-img'></div>
+
+    <div class='signin-form-container-1'>
+
+      <div class='signin-form-container-2'>
+
+        <p>Name: <span class="property-display"><%= agency.name %></span></p>
+
+        <p>Profile Login URL: <span class="property-display"><%= agency.profileLoginUrl %></span></p>
+
+        <p>Agent Name: <span class="property-display"><%= agency.agentName %></span></p>
+
+        <p>Agent Email: <span class="property-display"><%= agency.agentEmail %></span></p>
+
+        <p>Agent Tel No: <span class="property-display"><%= agency.agentTelNo %></span></p>
+
+        <p>Street Address: <span class="property-display"><%= agency.streetAddress %></span></p>
+
+        <p>City: <span class="property-display"><%= agency.city %></span></p>
+
+        <p>Country: <span class="property-display"><%= agency.country %></span></p>
+
+        <p>Contact Number: <span class="property-display"><%= agency.contactNumber %></span></p>
+
+        <p>Operating Hours: <span class="property-display"><%= agency.operatingHours %></span></p> 
+
+        <form action="/agencies/<%= agency._id %>?_method=DELETE" method="POST">
+
+          <button type="submit">Delete Agency</button>
+
+        </form>
+        
+        <a class="property-display" href="/agencies/<%= agency._id %>/edit">Edit Agency Details</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>

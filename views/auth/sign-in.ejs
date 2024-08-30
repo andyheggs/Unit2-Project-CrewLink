@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang='en'>
 
-  <head>
+<head>
 
-    <meta charset="UTF-8" />
+  <meta charset='UTF-8' />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
 
-    <title>Sign In</title>
+  <title>Sign In</title>
 
-  </head>
+</head>
 
-  <body>
+<body>
 
     <%- include('../partials/_navbar.ejs') %>
 
-    <h1>Sign in</h1>
+    <div class='signin-page'>
 
-    <form action='/auth/sign-in' method='POST'>
+      <div class='signin-img'></div>
 
-      <label for='username'>Username:</label>
+      <div class='signin-form-container-1'>
 
-      <input type='text' name='username' id='username' />
+        <div class='signin-form-container-2'>
 
-      <label for='password'>Password:</label>
+          <h1>Sign in</h1>
 
-      <input type='password' name='password' id='password' />
+          <form action='/auth/sign-in' method='POST'>
 
-      <button type='submit'>Sign in</button>
+            <label for='username'>Username:</label>
 
-    </form>
+            <input type='text' name='username' id='username' />
 
-    <div class="landing-image"></div>
+            <label for='password'>Password:</label>
+
+            <input type='password' name='password' id='password' />
+
+            <button type='submit'>Sign in</button>
+
+          </form>
+
+        </div>
+
+      </div>  
+
+    </div>    
       
-  </body>
+</body>
 
 </html>

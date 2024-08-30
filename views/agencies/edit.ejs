@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+
+  <title>Edit an Agency</title>
+
+</head>
+
+<body>
+
+  <%- include('../partials/_navbar.ejs') %>
+
+  <div class="new-container">
+
+    <div class="new-form-container">
+    
+      <h1>Edit your Agency</h1>
+
+          <form action="/agencies/<%= agency._id %>?_method=PUT" method="POST">
+
+          <label for='name'>Name:</label>
+
+          <input type='text' name='name' required value='<%= agency.name %>' ><br>
+
+
+          <label for='profileLoginUrl'>Profile Login URL:</label>
+
+          <input type='text' name='profileLoginUrl' id='profileLoginUrl' required value="<%= agency.profileLoginUrl %>"><br>
+
+
+          <label for='agentName'>Agent Name:</label>
+
+          <input type='text' name='agentName' id='agentName' value='<%= agency.agentName %>'><br>
+
+
+          <label for='agentEmail'>Agent Email:</label>
+
+          <input type='text' name='agentEmail' id='agentEmail' value='<%= agency.agentEmail %>'><br>
+
+
+          <label for='agentTelNo'>Agent Tel No:</label>
+
+          <input type='text' name='agentTelNo' id='agentTelNo' value='<%= agency.agentTelNo %>'><br>
+
+
+          <label for='streetAddress'>Street Address:</label>
+
+          <input type='text' name='streetAddress' id='streetAddress' value='<%= agency.streetAddress %>'><br>
+
+
+          <label for='city'>City:</label>
+
+          <input type='text' name='city' id='city' value='<%= agency.city %>'><br>
+
+
+          <label for='country'>Country:</label>
+
+          <input type='text' name='country' id='country' value='<%= agency.country %>'><br>
+
+
+          <label for='contactNumber'>Contact Number:</label>
+
+          <input type='text' name='contactNumber' id='contactNumber' value='<%= agency.contactNumber %>'><br>
+
+
+          <label for='operatingHours'>Operating Hours:</label>
+
+          <input type='text' name='operatingHours' id='operatingHours' value='<%= agency.operatingHours %>'><br>
+                    
+          <button type="submit">Save Changes</button>
+
+        </form>
+
+      </div> 
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>

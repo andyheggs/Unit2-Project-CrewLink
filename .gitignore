@@ -1,3 +1,7 @@
 .env
 node_modules
 package-lock.json
+fullStructure.txt
+directory_structure.txt
+ERD.txt
+seed.js

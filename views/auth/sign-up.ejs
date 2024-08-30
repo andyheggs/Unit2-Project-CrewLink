@@ -1,42 +1,58 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang='en'>
 
-  <head>
+<head>
 
-    <meta charset="UTF-8" />
+  <meta charset='UTF-8' />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
-    <link rel="stylesheet" href="/stylesheets/style.css" />    
+  <link rel='stylesheet' href='/stylesheets/style.css' />    
 
-    <title>Sign Up</title>
+  <title>Sign Up</title>
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <%- include('../partials/_navbar.ejs') %>
+  <%- include('../partials/_navbar.ejs') %>
 
-    <h1>Sign-up to CrewLink!</h1>
+  <div class='signup-page'>
 
-    <form action='/auth/sign-up' method='POST'>
+    <div class='signup-img'></div>
 
-      <label for='username'>Username:</label>
+    <div class='signup-form-container-1'>
 
-      <input type='username' name='username' required><br>
+      <div class='signup-form-container-2'>
 
-      <label for='password'>Password:</label>
+        <h1>Sign up</h1>
 
-      <input type='password' name='password' required><br>
+        <form action='/auth/sign-up' method='POST'>
 
-      <label for='confirmPassword'>Confirm Password:</label>
+          <label for='username'>Username:</label>
+
+          <input type='text' name='username' id='username' required><br>
+
+          <label for='password'>Password:</label>
+
+          <input type='password' name='password' id='password' required><br>
+
+          <label for='confirmPassword'>Confirm Password:</label>
+          
+          <input type='password' name='confirmPassword' id='confirmPassword' required><br>
+
+          <button type='submit'>Sign Up</button>
       
-      <input type='password' name='confirmPassword' required><br>
+        </form>
 
-      <button type='submit'>Sign Up</button>
-      
-    </form>
+      </div>
+
+     </div>
+
+      <div class="signup-img"></div>
+
+    </div>   
 
   </body>
   
