@@ -1,10 +1,12 @@
+const express = require('express');
+const Agency = require('../models/agency');
+const isSignedIn = require('../middleware/is-signed-in');
+const isAgencyOwner = require('../middleware/agency-owner');
 
+const router = express.Router();
 
-const express = require('express')
-
-const router = express.Router()
-
-const Agency = require('../models/agency')
+// All routes protected by `isSignedIn`
+router.use(isSignedIn);
 
 
 //----------------------------------------------All Agency Listings----------------------------------------------// 
@@ -13,7 +15,7 @@ router.get('/', async (req, res) => {
 
   try {
 
-    const agencies = await Agency.find();
+    const agencies = await Agency.find({ user: req.session.user._id }); // Only fetch agencies owned by the signed-in user
 
     res.render('agencies/index.ejs', { agencies });
 

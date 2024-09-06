@@ -80,11 +80,6 @@ app.get('/', (req, res) => {
 app.use('/auth', authController);
 app.use('/agencies', isSignedIn, agenciesController);
 
-//app.use('/platform', isSignedIn, platformController);
-//app.use('/job', isSignedIn, jobController);
-//app.get('/dashboard', isSignedIn);
-//app.use('/users', isSignedIn, userController);
-
 
 // Page Error (404)
 app.get('*', (req, res) => {
