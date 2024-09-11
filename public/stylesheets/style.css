@@ -17,7 +17,7 @@ body {
   }
   
   .crewLink-icon {
-    background-image: url('https://i.imgur.com/pzj5Byp.png');
+    background-image: url('');
     background-size: cover;
     background-repeat: no-repeat;
     height: 60px;
@@ -27,7 +27,7 @@ body {
   }
   
   .landing-image {
-    background-image: url('https://i.imgur.com/JU25HPI.jpg');
+    background-image: url('');
     min-height: 110vh;
     background-size: cover;
     background-repeat: no-repeat;
