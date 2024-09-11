@@ -126,7 +126,7 @@ body {
 
 .error-image-404 {
   position: relative;
-  background-image: url(https://i.imgur.com/d0LPSsM.jpg);
+  background-image: url('https://i.imgur.com/d0LPSsM.jpg');
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
