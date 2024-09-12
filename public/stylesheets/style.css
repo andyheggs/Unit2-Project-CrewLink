@@ -17,7 +17,7 @@ body {
   }
   
   .crewLink-icon {
-    background-image: url('https://i.imgur.com/pzj5Byp.png');
+    background-image: url('/images/logo.png');
     background-size: cover;
     background-repeat: no-repeat;
     height: 60px;
@@ -27,7 +27,7 @@ body {
   }
   
   .landing-image {
-    background-image: url('https://i.imgur.com/JU25HPI.jpg');
+    background-image: url('/images/landing.jpg');
     min-height: 110vh;
     background-size: cover;
     background-repeat: no-repeat;
@@ -108,7 +108,7 @@ body {
 
   .landing-page-description {
     position: absolute;
-    top: 20%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
@@ -121,12 +121,12 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
     font-weight: bold; 
     font-style: italic; 
-    font-size: 2.5em
+    font-size: 2em
 }
 
 .error-image-404 {
   position: relative;
-  background-image: url('https://i.imgur.com/d0LPSsM.jpg');
+  background-image: url('/images/404.png');
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -213,7 +213,7 @@ button:hover {
 }
 
 .signup-img {
-  background-image: url('https://i.imgur.com/C3ZYU9j.jpg');
+  background-image: url('/images/signin.jpg');
   min-height: 110vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -223,11 +223,11 @@ button:hover {
 }
 
 .signin-img {
-  background-image: url('https://i.imgur.com/8lEBtG9.jpg');
+  background-image: url('/images/login.jpg');
   min-height: 110vh;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 40%;
+  width: 60%;
   position: relative;
   z-index: -10;
   left: -10px;

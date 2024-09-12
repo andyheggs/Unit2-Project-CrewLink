@@ -7,6 +7,7 @@
   <title>Agency Listings</title>
 </head>
 <body>
+  
   <%- include('../partials/_navbar.ejs') %>
 
   <h1>Here's all your Agency Profiles</h1>    
@@ -15,14 +16,21 @@
   <a href="/agencies/new" class="property-display">Add an Agency</a>
   
   <div class="card-container">
+
     <% agencies.forEach((agency)=> { %>
+
       <a href="/agencies/<%= agency._id %>">
+
         <h4><%= agency.name %></h4>
+
         <p><%= agency.profileLoginUrl %></p>
+
       </a>
+
     <% }) %>
+
   </div>
 
-  <div class="landing-image"></div> 
 </body>
+
 </html>

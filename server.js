@@ -22,12 +22,6 @@ const isSignedIn = require('./middleware/is-signed-in.js');
 const authController = require('./controllers/auth.js');
 const agenciesController = require('./controllers/agencies.js');
 
-//stretch deployment:
-//const platformController = require('./controllers/platform.js');
-//const jobController = require('./controllers/job.js');
-//const userController = require('./controllers/user.js');
-
-// Set the port from environment variable or default to 3000
 const port = process.env.PORT || 3000;
 
 //require path to enable express static css styling:
