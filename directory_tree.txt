@@ -1,0 +1,44 @@
+.
+├── README.md
+├── controllers
+│   ├── agencies.js
+│   └── auth.js
+├── directory_tree.txt
+├── middleware
+│   ├── agency-owner.js
+│   ├── is-signed-in.js
+│   └── pass-user-to-view.js
+├── models
+│   ├── agency.js
+│   └── user.js
+├── netlify
+│   └── functions
+│       └── api.js
+├── netlify.toml
+├── package-lock.json
+├── package.json
+├── public
+│   ├── images
+│   │   ├── 404.png
+│   │   ├── landing.jpg
+│   │   ├── login.jpg
+│   │   ├── logo.png
+│   │   └── signin.jpg
+│   └── stylesheets
+│       └── style.css
+├── server.js
+└── views
+    ├── 404.ejs
+    ├── agencies
+    │   ├── edit.ejs
+    │   ├── index.ejs
+    │   ├── new.ejs
+    │   └── show.ejs
+    ├── auth
+    │   ├── sign-in.ejs
+    │   └── sign-up.ejs
+    ├── index.ejs
+    └── partials
+        └── _navbar.ejs
+
+12 directories, 29 files

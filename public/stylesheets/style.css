@@ -17,7 +17,7 @@ body {
   }
   
   .crewLink-icon {
-    background-image: url('/images/logo.png');
+    background-image: url('https://res.cloudinary.com/dim47nr4g/image/upload/v1726143888/logo_z9zuu1.png');
     background-size: cover;
     background-repeat: no-repeat;
     height: 60px;
@@ -27,7 +27,7 @@ body {
   }
   
   .landing-image {
-    background-image: url('/images/landing.jpg');
+    background-image: url('https://res.cloudinary.com/dim47nr4g/image/upload/v1726143889/landing_xdjyjm.jpg');
     min-height: 110vh;
     background-size: cover;
     background-repeat: no-repeat;
@@ -126,7 +126,7 @@ body {
 
 .error-image-404 {
   position: relative;
-  background-image: url('/images/404.png');
+  background-image: url('https://res.cloudinary.com/dim47nr4g/image/upload/v1726143889/404_zpdeus.webp');
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -213,7 +213,7 @@ button:hover {
 }
 
 .signup-img {
-  background-image: url('/images/signin.jpg');
+  background-image: url('https://res.cloudinary.com/dim47nr4g/image/upload/v1726143889/signin_qaubrg.jpg');
   min-height: 110vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -223,7 +223,7 @@ button:hover {
 }
 
 .signin-img {
-  background-image: url('/images/login.jpg');
+  background-image: url('https://res.cloudinary.com/dim47nr4g/image/upload/v1726143889/login_yffqh1.jpg');
   min-height: 110vh;
   background-size: cover;
   background-repeat: no-repeat;
