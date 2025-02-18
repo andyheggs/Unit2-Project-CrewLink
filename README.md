@@ -24,7 +24,7 @@ CrewLink is designed for superyacht crew members to keep track of all the crew r
 
 ## Deployment
 
-The app is deployed on Netlify and can be accessed [here](https://melodic-macaron-76a64b.netlify.app "‌").
+The app is deployed on Netlify and can be accessed [here]([(https://crewlink.netlify.app/)]"‌").
 
 ## Planning
 
